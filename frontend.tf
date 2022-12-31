@@ -6,7 +6,7 @@ resource "kubernetes_deployment" "ft-deploy" {
     }
   }
   spec {
-    replicas = 2
+    replicas = 3
     selector {
       match_labels = {
         name = "web1"
