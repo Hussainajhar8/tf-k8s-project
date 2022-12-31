@@ -9,3 +9,7 @@ terraform {
 provider "kubernetes" {
   config_path    = "/c/Users/Miskeen/.kube/config"
 }
+
+provider "aws" {
+  region = "us-west-2"
+}
