@@ -1,0 +1,29 @@
+image: hashicorp/terraform:latest
+
+stages:
+  - plan
+  - apply
+
+plan:
+  stage: plan
+  script:
+    - terraform plan
+  only:
+    - push
+    - merge_request
+  except:
+    - tags
+
+apply:
+  stage: apply
+  script:
+    - terraform apply -auto-approve
+  only:
+    - push
+    - merge_request
+  except:
+    - tags
+
+variables:
+  AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID"
+  AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY"
